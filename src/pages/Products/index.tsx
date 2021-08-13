@@ -87,8 +87,8 @@ export default function Products () {
     }
 
     async function handleModifyProduct (id: string) {
-        localStorage.setItem('productId', id);
-        router.push('/Product/modify'); // navigates to the ModifyProduct route
+			localStorage.setItem('productId', id);
+			router.push('/ModifyProduct'); // navigates to the ModifyProduct route
     }
 
     return (
@@ -106,7 +106,7 @@ export default function Products () {
 
             <div className="profile-container2">
               {/* <Link className="button" to="/product/new">Incluir Produto</Link> */}
-              <Link href="/Product/new">Incluir Produto</Link>
+              <Link href="/NewProduct">Incluir Produto</Link>
             </div>
 
             <div className="profile-container3">

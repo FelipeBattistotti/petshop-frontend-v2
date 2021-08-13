@@ -51,7 +51,7 @@ export default function Register() {
         <div className="register-container">
             <section className="form">
                 <header>
-                    <Image  src='/small_pet_shop_logo.svg' alt="smallPetShopLogo" width={72} height={16} />
+                    <Image  src='/small_pet_shop_logo.svg' alt="smallPetShopLogo" width={90} height={16} />
                     {/* <Image  src={smallPetShopLogoImg} alt="smallPetShopLogo" className="img" /> */}
                     {/* <Image  src={loginLogoImg} alt="loginLogo" className="img" /> */}
                     <button onClick={handleLogin} type="button" title="Voltar">

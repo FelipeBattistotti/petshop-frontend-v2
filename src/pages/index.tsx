@@ -98,18 +98,17 @@ export default function Login() {
     const { addToast } = useToasts();
 
     async function handleLogin (e: { preventDefault: () => void; }) {
-        e.preventDefault();
+      e.preventDefault();
+      try {
+        const response = await api.post('login', { email, pwd }); // makes the session request
 
-        try {
-            const response = await api.post('login', { email, pwd }); // makes the session request
+        localStorage.setItem('userId', response.data.id);
 
-            localStorage.setItem('userId', response.data.id);
-
-            router.push('/Products'); // navigates to the Products route
-            //history.push('/products'); // navigates to the Products route
-        } catch (err) {
-            addToast('Falha no login, tente novamente.', { appearance: 'info' });
-        }
+        router.push('/Products'); // navigates to the Products route
+        //history.push('/products'); // navigates to the Products route
+      } catch (err) {
+        addToast('Falha no login, tente novamente.', { appearance: 'info' });
+      }
     }
 
     return (
@@ -135,10 +134,10 @@ export default function Login() {
 
                     {/* <Link className="link-register" to="/register"> */}
                     <Link href="/Register" passHref>
-                        <>
-                          <FiPlusCircle size={20} color="#E84143" />
-                          Cadastrar-se
-                        </>
+                      <div className="link-register">
+                        <FiPlusCircle size={20} color="#E84143" />
+                        Cadastrar-se
+                      </div>
                     </Link>
                 </form>
             </section>

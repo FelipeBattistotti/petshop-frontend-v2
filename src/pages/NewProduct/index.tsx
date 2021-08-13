@@ -60,7 +60,7 @@ export default function NewProduct() {
       <div className="new-product-container">
           <section className="form">
               <header>
-                  <Image  src='/small_pet_shop_logo.svg' alt="smallPetShopLogo" width={72} height={16} />
+                  <Image  src='/small_pet_shop_logo.svg' alt="smallPetShopLogo" width={90} height={16} />
                   {/* <img  src={smallPetShopLogoImg} alt="smallPetShopLogo" className="img" /> */}
                   <button onClick={handleProducts} type="button" title="Voltar">
                       <FiChevronLeft size={30} />

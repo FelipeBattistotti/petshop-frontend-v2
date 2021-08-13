@@ -95,7 +95,7 @@ export default function Products () {
         <>
             <div className="profile-container1">
               <header>
-                  <Image src='/large_pet_shop_logo.svg' alt="largePetShopLogo" width={100} height={20} />
+                  <Image src='/large_pet_shop_logo.svg' alt="largePetShopLogo" width={240} height={25} />
                   {/* <Image src={largePetShopLogoImg} alt="largePetShopLogo" /> */}
                   {/* <Image  src={loginLogoImg} alt="loginLogo" className="img" /> */}
                   <button onClick={handleLogout} type="button" title="Sair">
@@ -106,7 +106,11 @@ export default function Products () {
 
             <div className="profile-container2">
               {/* <Link className="button" to="/product/new">Incluir Produto</Link> */}
-              <Link href="/NewProduct">Incluir Produto</Link>
+              <Link href="/NewProduct">
+								<div className="button">
+									Incluir Produto
+								</div>
+							</Link>
             </div>
 
             <div className="profile-container3">

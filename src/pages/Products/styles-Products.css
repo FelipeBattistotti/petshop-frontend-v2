@@ -65,6 +65,7 @@
 
 .profile-container2 .button:hover {
     filter: brightness(90%);
+    cursor: pointer;
 }
 
 .profile-container3 {

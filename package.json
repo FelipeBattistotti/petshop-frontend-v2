@@ -6,8 +6,8 @@
     "name": "Felipe Battistotti"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "rimraf .next && next dev",
+    "build": "rimraf .next && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,7 +17,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "react-toast-notifications": "^2.5.1"
+    "react-toast-notifications": "^2.5.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@types/react": "17.0.17",

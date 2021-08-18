@@ -2,6 +2,7 @@
   "name": "petshop-frontend-v2",
   "version": "0.1.0",
   "private": false,
+  "license": "MIT",
   "author": {
     "name": "Felipe Battistotti"
   },

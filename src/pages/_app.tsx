@@ -8,7 +8,7 @@ import './Products/styles-Products.css';
 import './NewProduct/styles-NewProduct.css'
 import './ModifyProduct/styles-ModifyProduct.css'
 
-function PetShop({ Component, pageProps }: AppProps) {
+const PetShop = ({ Component, pageProps }: AppProps) => {
   return (
     <ToastProvider autoDismiss autoDismissTimeout={4000}>
       <Component {...pageProps} />

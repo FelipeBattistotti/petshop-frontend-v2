@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <div className="logon-container">
       <section className="form">
-        <Image  src="/login_logo.svg" alt="loginLogo" width={72} height={16} />
+        <Image  src="/login_logo.svg" alt="loginLogo" width={80} height={20} />
         <form onSubmit={handleLogin}>
           <input 
             placeholder="E-mail"

@@ -13,8 +13,8 @@ export default function ModifyProduct() {
   const [price, setPrice] = useState('');
   const [stock_quantity, setStockQuantity] = useState('');
 
-  const userId = localStorage.getItem('userId');
-  const productId = localStorage.getItem('productId');
+  const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : '';
+  const productId = typeof window !== 'undefined' ? localStorage.getItem('productId') : '';
 
   const router = useRouter();
   const { addToast } = useToasts();

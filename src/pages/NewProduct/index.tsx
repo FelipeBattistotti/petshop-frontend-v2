@@ -13,7 +13,7 @@ export default function NewProduct() {
   const [price, setPrice] = useState('');
   const [stock_quantity, setStockQuantity] = useState('');
 
-  const userId = localStorage.getItem('userId');
+  const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : '';
 
   const router = useRouter();
   const { addToast } = useToasts();

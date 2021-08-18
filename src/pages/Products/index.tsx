@@ -7,12 +7,22 @@ import { useToasts } from 'react-toast-notifications';
 
 import api from '../../services/api';
 
-export default function Products () {
-  const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  category: string;
+  price: number;
+  stock_quantity: number;
+  user_id: string;
+}
 
-  const userId = localStorage.getItem('userId');
+export default function Products () {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+
+  const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : '';
 
   const router = useRouter();
   const { addToast } = useToasts();
@@ -23,9 +33,9 @@ export default function Products () {
 
   async function loadProducts () {
     const response = await api.get('product', {
-        headers: {
-            Authorization: userId,
-        }
+      headers: {
+        Authorization: userId,
+      }
     });
 
     setProducts(response.data);
@@ -53,7 +63,7 @@ export default function Products () {
     router.push('/'); // back to the login page
   }
 
-  async function handleDeleteProduct (id: any) {
+  async function handleDeleteProduct (id: number) {
     if (window.confirm('O produto será excluído. Confirma?')) {
         try {
           await api.delete(`product/${id}`, {
@@ -64,9 +74,9 @@ export default function Products () {
 
           addToast('Produto excluído!', { appearance: 'info' });
 
-          setProducts(products.filter((product: any) => product.id !== id));
+          setProducts(products.filter((product: Product) => product.id !== id));
 
-          const resultsDelete = products.filter((product: any) => product.id !== id);
+          const resultsDelete = products.filter((product: Product) => product.id !== id);
 
           setSearchResults(resultsDelete);
           setSearchTerm('');
@@ -77,8 +87,8 @@ export default function Products () {
     }
   }
 
-  async function handleModifyProduct (id: string) {
-    localStorage.setItem('productId', id);
+  async function handleModifyProduct (id: number) {
+    localStorage.setItem('productId', String(id));
     router.push('/ModifyProduct'); // navigates to the ModifyProduct route
   }
 
@@ -118,7 +128,7 @@ export default function Products () {
 
       <div className="profile-container6">
         <ul>
-          {searchResults.map((product: any) => (
+          {searchResults.map((product: Product) => (
             <li key={product.id}>
               <div>
                 <p className="title">Nome</p>

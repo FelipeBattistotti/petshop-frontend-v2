@@ -117,14 +117,14 @@ export default function Products () {
         <p className="title">Produtos</p>
       </div>
 
-      <div className="profile-container5">
+      {/* <div className="profile-container5">
         <input 
           placeholder="Filtrar"
           type="text"
           value={searchTerm}
           onChange={handleChange}
         />
-      </div>
+      </div> */}
 
       <div className="profile-container6">
         <ul>

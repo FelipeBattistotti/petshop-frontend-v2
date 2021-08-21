@@ -19,8 +19,8 @@ interface Product {
 
 export default function Products () {
   const [products, setProducts] = useState<Product[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  //const [searchTerm, setSearchTerm] = useState('');
+  //const [searchResults, setSearchResults] = useState<Product[]>([]);
 
   const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : '';
 
@@ -29,7 +29,7 @@ export default function Products () {
 
   useEffect(() => {
     loadProducts();
-  }, [userId, searchTerm]);
+  }, [userId]);
 
   async function loadProducts () {
     const response = await api.get('product', {
@@ -40,23 +40,12 @@ export default function Products () {
 
     setProducts(response.data);
 
-    if (searchTerm === '') { // filter not informed yet
-        setSearchResults(response.data);
-    } else {
-        applyFilter();
-    }
+    // if (searchTerm === '') { // filter not informed yet
+    //     setSearchResults(response.data);
+    // } else {
+    //     applyFilter();
+    // }
   }
-
-  const applyFilter = () => {
-    const results = !searchTerm
-        ? products
-        : products.filter((product: any) =>
-            product.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-    );
-    setSearchResults(results);
-  }
-
-  const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => setSearchTerm(e.target.value);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -76,10 +65,10 @@ export default function Products () {
 
           setProducts(products.filter((product: Product) => product.id !== id));
 
-          const resultsDelete = products.filter((product: Product) => product.id !== id);
+          //const resultsDelete = products.filter((product: Product) => product.id !== id);
 
-          setSearchResults(resultsDelete);
-          setSearchTerm('');
+          // setSearchResults(resultsDelete);
+          // setSearchTerm('');
 
         } catch (err) {
           addToast('Erro ao deletar produto, tente novamente.', { appearance: 'error' });
@@ -117,18 +106,10 @@ export default function Products () {
         <p className="title">Produtos</p>
       </div>
 
-      {/* <div className="profile-container5">
-        <input 
-          placeholder="Filtrar"
-          type="text"
-          value={searchTerm}
-          onChange={handleChange}
-        />
-      </div> */}
-
       <div className="profile-container6">
         <ul>
-          {searchResults.map((product: Product) => (
+          {/* {searchResults.map((product: Product) => ( */}
+          {products.map((product: Product) => (
             <li key={product.id}>
               <div>
                 <p className="title">Nome</p>

@@ -7,9 +7,9 @@
     "name": "Felipe Battistotti"
   },
   "scripts": {
-    "dev": "rimraf .next && next dev",
+    "dev": "rimraf .next && next dev --port 3001",
     "build": "rimraf .next && next build",
-    "start": "next start",
+    "start": "next start --port 3001",
     "lint": "next lint"
   },
   "dependencies": {

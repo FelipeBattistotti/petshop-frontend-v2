@@ -19,8 +19,6 @@ interface Product {
 
 export default function Products () {
   const [products, setProducts] = useState<Product[]>([]);
-  //const [searchTerm, setSearchTerm] = useState('');
-  //const [searchResults, setSearchResults] = useState<Product[]>([]);
 
   const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : '';
 
@@ -39,12 +37,6 @@ export default function Products () {
     });
 
     setProducts(response.data);
-
-    // if (searchTerm === '') { // filter not informed yet
-    //     setSearchResults(response.data);
-    // } else {
-    //     applyFilter();
-    // }
   }
 
   const handleLogout = () => {
@@ -64,11 +56,6 @@ export default function Products () {
           addToast('Produto excluído!', { appearance: 'info' });
 
           setProducts(products.filter((product: Product) => product.id !== id));
-
-          //const resultsDelete = products.filter((product: Product) => product.id !== id);
-
-          // setSearchResults(resultsDelete);
-          // setSearchTerm('');
 
         } catch (err) {
           addToast('Erro ao deletar produto, tente novamente.', { appearance: 'error' });
@@ -108,7 +95,6 @@ export default function Products () {
 
       <div className="profile-container6">
         <ul>
-          {/* {searchResults.map((product: Product) => ( */}
           {products.map((product: Product) => (
             <li key={product.id}>
               <div>

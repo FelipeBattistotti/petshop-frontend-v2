@@ -99,24 +99,6 @@
     color: #fafafc;
 }
 
-.profile-container5 {
-    width: 80%;
-    padding: 10 30px;
-    margin: 25px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profile-container5 input {
-    width: 600px;
-    height: 45px;
-    border: 1px solid #E84143;
-    border-radius: 8px;
-    padding: 0 18px;
-    font-size: 16px;
-}
-
 .profile-container6 {
     width: 80%;
     padding: 10 30px;
